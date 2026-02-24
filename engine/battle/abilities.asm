@@ -2042,6 +2042,18 @@ _GetIgnorableAbility:
 
 INCLUDE "data/abilities/mold_breaker_suppressed_abilities.asm"
 
+DisplayAbilitySwap:
+	call BeginAbility
+	call ShowAbilityActivation
+	call ShowEnemyAbilityActivation
+	call GetTrueUserAbility
+	call ShowEnemyAbilityReplacement
+	call GetOpponentAbility
+	call ShowAbilityReplacement
+	ld hl, SwappedAbilitiesText
+	call StdBattleTextbox
+	jr EndAbility
+
 BeginAbility:
 	ld a, [wInAbility]
 	and a
@@ -2066,6 +2078,8 @@ EndAbility:
 	ld [wInAbility], a
 	ret
 
+ShowEnemyAbilityReplacement:
+	call StackCallOpponentTurn
 ShowAbilityReplacement:
 	push hl
 	push de

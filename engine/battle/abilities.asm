@@ -170,10 +170,12 @@ TraceAbility:
 	ld b, a
 	farcall BufferAbility
 
-	; TODO: fancier graphics?
 	call BeginAbility
 	call ShowAbilityActivation
 	call ShowEnemyAbilityActivation
+	pop af
+	push af
+	call ShowAbilityReplacement
 	ld hl, TraceActivationText
 	call StdBattleTextbox
 	call EndAbility
@@ -2063,6 +2065,17 @@ EndAbility:
 	xor a
 	ld [wInAbility], a
 	ret
+
+ShowAbilityReplacement:
+	push hl
+	push de
+	push bc
+	ld c, a
+	ld a, BATTLE_VARS_ABILITY
+	call GetBattleVar
+	ld b, a
+	call PerformAbilityReplacementGFX
+	jmp PopBCDEHL
 
 ShowEnemyAbilityActivation::
 	call StackCallOpponentTurn

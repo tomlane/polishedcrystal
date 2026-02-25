@@ -268,6 +268,16 @@ TilesetFarawayIslandAnim::
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
+TilesetTraditionalHouseAnim::
+	dw FireFrames1, AnimateWhirlpoolTile
+	dw FireFrames2, AnimateWhirlpoolTile
+	dw NULL,  DoNothing
+	dw NULL,  DoNothing
+	dw NULL,  DoNothing
+	dw NULL,  DoNothing
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
+
 TilesetTunnelAnim::
 	dw vTiles2 tile $26, WriteTileToBuffer
 	dw NULL,  DoNothing
@@ -357,7 +367,6 @@ TilesetFacilityAnim::
 TilesetMartAnim::
 TilesetMansionAnim::
 TilesetGameCornerAnim::
-TilesetTraditionalHouseAnim::
 TilesetMagnetTrainAnim::
 TilesetChampionsRoomAnim::
 TilesetLighthouseAnim::
@@ -1198,6 +1207,12 @@ WhirlpoolTiles1: INCBIN "gfx/tilesets/whirlpool/1.2bpp"
 WhirlpoolTiles2: INCBIN "gfx/tilesets/whirlpool/2.2bpp"
 WhirlpoolTiles3: INCBIN "gfx/tilesets/whirlpool/3.2bpp"
 WhirlpoolTiles4: INCBIN "gfx/tilesets/whirlpool/4.2bpp"
+
+FireFrames1: dw vTiles2 tile $6d, FireTiles1
+FireFrames2: dw vTiles2 tile $6e, FireTiles2
+
+FireTiles1: INCBIN "gfx/tilesets/fire/1.2bpp"
+FireTiles2: INCBIN "gfx/tilesets/fire/2.2bpp"
 
 FarawayWaterFrames1: dw vTiles2 tile $14, FarawayWaterTiles1
 FarawayWaterFrames2: dw vTiles2 tile $15, FarawayWaterTiles2

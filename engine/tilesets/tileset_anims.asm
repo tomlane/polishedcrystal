@@ -337,15 +337,14 @@ TilesetSnowtopMountainAnim::
 
 TilesetHideoutAnim::
 	dw vTiles2 tile $08, AnimateSpinnerTile
+TilesetFacilityAnim::
+	dw vTiles2 tile $6c, AnimateTurbineTiles
+	dw NULL,  StandingTileFrame8
 	dw NULL,  DoNothing
+	dw vTiles2 tile $6c, AnimateTurbineTiles
+	dw NULL,  StandingTileFrame8
 	dw NULL,  DoNothing
-	dw NULL,  DoNothing
-	dw NULL,  DoNothing
-	dw NULL,  DoNothing
-	dw NULL,  DoNothing
-	dw NULL,  DoNothing
-	dw NULL,  DoNothing
-	dw NULL,  DoNothing
+	dw vTiles2 tile $6c, AnimateTurbineTiles
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
@@ -354,7 +353,6 @@ TilesetKantoHouseAnim::
 TilesetPokeCenterAnim::
 TilesetGateAnim::
 TilesetLabAnim::
-TilesetFacilityAnim::
 TilesetMartAnim::
 TilesetMansionAnim::
 TilesetGameCornerAnim::
@@ -652,6 +650,29 @@ AnimateSpinnerTile:
 
 .SpinnerTileFrames:
 INCBIN "gfx/tilesets/animations/spinner.2bpp"
+
+AnimateTurbineTiles:
+	ld hl, sp + 0
+	ld b, h
+	ld c, l
+
+	; period 2, offset to 4 tiles (64 bytes)
+	ld a, [wTileAnimationTimer]
+	maskbits 2
+	swap a
+	add a
+	add a
+
+	add LOW(.TurbineTileFrames)
+	ld l, a
+	adc HIGH(.TurbineTileFrames)
+	sub l
+	ld h, a
+
+	jmp WriteFourTilesHLToDE
+
+.TurbineTileFrames:
+INCBIN "gfx/tilesets/animations/turbine.2bpp"
 
 AnimateForestTreeTiles:
 	ld a, [wCelebiEvent]

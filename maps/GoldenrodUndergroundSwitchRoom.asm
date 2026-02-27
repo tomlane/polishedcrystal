@@ -57,17 +57,17 @@ MACRO ugdoor_def
 ENDM
 
 	;           x,  y, closed, open,  x,  y, closed, open ; id
-	ugdoor_def 18,  4,    $31,  $0d                       ;  1
-	ugdoor_def 12,  4,    $31,  $0d                       ;  2
-	ugdoor_def  4,  4,    $31,  $0d                       ;  3
-	ugdoor_def  4,  8,    $31,  $0d                       ;  4
-	ugdoor_def 12,  8,    $31,  $0d                       ;  5
-	ugdoor_def 18,  8,    $31,  $0d                       ;  6
-	ugdoor_def 14,  4,    $41,  $34, 14,  6,    $40,  $0d ;  7
-	ugdoor_def  8,  4,    $42,  $11,  8,  6,    $40,  $0d ;  8
-	ugdoor_def 14,  8,    $43,  $35, 14, 10,    $40,  $0d ;  9
-	ugdoor_def  8,  8,    $44,  $37,  8, 10,    $40,  $0d ; 10
-	ugdoor_def 20,  8,    $45,  $3c, 20, 10,    $40,  $0d ; 11
+	ugdoor_def 18,  4,    $31,  $0d, 18,  6,    $4a,  $0d ;  1
+	ugdoor_def 12,  4,    $31,  $0d, 12,  6,    $4a,  $0d ;  2
+	ugdoor_def  4,  4,    $31,  $0d,  4,  6,    $4a,  $0d ;  3
+	ugdoor_def  4,  8,    $31,  $0d,  4, 10,    $4a,  $0d ;  4
+	ugdoor_def 12,  8,    $31,  $0d, 12, 10,    $4a,  $0d ;  5
+	ugdoor_def 18,  8,    $31,  $0d, 18, 10,    $4a,  $0d ;  6
+	ugdoor_def 14,  4,    $41,  $34, 14,  6,    $40,  $4a ;  7
+	ugdoor_def  8,  4,    $42,  $11,  8,  6,    $40,  $4a ;  8
+	ugdoor_def 14,  8,    $43,  $35, 14, 10,    $40,  $4a ;  9
+	ugdoor_def  8,  8,    $44,  $37,  8, 10,    $40,  $4a ; 10
+	ugdoor_def 20,  8,    $45,  $3c, 20, 10,    $40,  $4a ; 11
 
 MACRO changeugdoor
 ;\1: ugdoor id

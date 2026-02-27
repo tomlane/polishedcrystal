@@ -34,10 +34,10 @@ PowerPlant_MapScriptHeader:
 PowerPlantTurbinesCallback:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iffalsefwd .Done
-	changeblock 12, 6, $1f
-	changeblock 14, 6, $23
-	changeblock 12, 12, $23
-	changeblock 12, 14, $23
+	changeblock 12, 6, $12
+	changeblock 14, 6, $47
+	changeblock 12, 12, $16
+	changeblock 12, 14, $16
 .Done:
 	endcallback
 
@@ -169,10 +169,10 @@ PowerPlantManager:
 	special LoadMapPalettes
 	pause 10
 	special FadeInPalettes_EnableDynNoApply
-	changeblock 12, 6, $1f
-	changeblock 14, 6, $23
-	changeblock 12, 12, $23
-	changeblock 12, 14, $23
+	changeblock 12, 6, $12
+	changeblock 14, 6, $47
+	changeblock 12, 12, $16
+	changeblock 12, 14, $16
 	refreshmap
 	pause 30
 	opentext
